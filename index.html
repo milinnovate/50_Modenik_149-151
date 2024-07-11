@@ -215,7 +215,9 @@
                 C36 --> D48[In terms of market share]:::quaternary
             </div>
         </div>
+        <div class="zoom-buttons">
 
+        </div>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const zoomContainer = d3.select("#zoomContainer");
@@ -243,20 +245,7 @@
                 // Render the Mermaid chart
                 mermaid.initialize({ startOnLoad: true });
     
-                // Zoom in button
-                document.getElementById('zoomIn').addEventListener('click', () => {
-                    zoom.scaleBy(zoomContainer.transition().duration(500), 1.2);
-                });
-    
-                // Zoom out button
-                document.getElementById('zoomOut').addEventListener('click', () => {
-                    zoom.scaleBy(zoomContainer.transition().duration(500), 0.8);
-                });
-    
-                // Reset button
-                document.getElementById('reset').addEventListener('click', () => {
-                    zoomContainer.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
-                });
+           
             });
         </script>
     </body>
