@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mermaid Chart with D3.js Zoom and Pan</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.2.4/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <style>
+        .zoom-container {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .zoom-content {
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+        }
+        .zoom-buttons {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        .zoom-buttons button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="zoom-container" id="zoomContainer">
+        <div class="zoom-content" id="zoomContent">
+            <!-- insert mermaid code here -->
+            <div class="mermaid">
+            %%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#ff69b4', 'secondaryColor': '#ff99cc', 'tertiaryColor': '#ffccff', 'quaternaryColor': '#ccffff', 'quinaryColor': '#99ccff', 'senaryColor': '#6699ff', 'septenaryColor': '#3366ff', 'fontFamily': 'Arial', 'fontSize': '20px'}}}%%
+            graph LR;
+                classDef primary fill:#ff69b4,stroke:#333,stroke-width:2px,color:#fff,font-size:20px;
+                classDef secondary fill:#ff99cc,stroke:#333,stroke-width:2px,color:#fff,font-size:20px;
+                classDef tertiary fill:#ffccff,stroke:#333,stroke-width:2px,color:#333,font-size:20px;
+                classDef quaternary fill:#ccffff,stroke:#333,stroke-width:2px,color:#333,font-size:20px;
+                classDef quinary fill:#99ccff,stroke:#333,stroke-width:2px,color:#333,font-size:20px;
+                classDef senary fill:#6699ff,stroke:#333,stroke-width:2px,color:#fff,font-size:20px;
+                classDef septenary fill:#3366ff,stroke:#333,stroke-width:2px,color:#fff,font-size:20px;
+            
+                ROOT["What should be the retail and customer offerings/ <br> GTM of Dixcy Slims for bra category, <br> based on competitive benchmarking analysis <br> and consumer preference analysis"]:::primary
+            
+                ROOT --> A1[What are our custumer's preferences]:::primary
+                A1 --> B1[Where are we holding the most market share]:::secondary
+                B1 --> C1[What is the present product offering of Dixcy Slims]:::tertiary
+                C1 --> D1[What do our present customers feel about our price]:::quaternary
+                C1 --> D2[What do our present customers feel about our quality]:::quaternary
+                D2 --> E1[How do they feel about the fitting of our products]:::quinary
+                D2 --> E2[How do they feel about the stitch of our products]:::quinary
+                D2 --> E3[How do they feel about the breathability and material quality]:::quinary
+                C1 --> D3[What do our present customers feel about our packaging]:::quaternary
+                C1 --> D4[What do our present customers feel about our product's comfort level]:::quaternary
+                B1 --> C2[What is our current brand positioning: is it mainstream/ aspirational/ unconventional/ peripheral?]:::tertiary
+                B1 --> C3[What is the current status of acceptability/ affordability/ accessibility and awareness of our brand in our target market]:::tertiary
+                C3 --> D5[Is our current brand positioning and communication aligned with our target market's needs]:::quaternary
+            
+                A1 --> B2[What is the target geographic location]:::secondary
+                B2 --> C4[In which locations has Dixcy Slimz's sister brands been successful and therefore has brand value and customer recognition?]:::tertiary
+                C4 --> D6[Where do our target customers prefer to shop for bras? Online or offline stores?]:::quaternary
+                D6 --> E4[Is it feasible to distribute bras in offline stores?]:::quinary
+                E4 --> F1[How much margin do the distributers charge?]:::senary
+                E4 --> F2[How can we optimize our logistics and operations cost?]:::senary
+                A1 --> B3[What is our target demographic]:::secondary
+                B3 --> C5[Which age group do they majorly fall under]:::tertiary
+                C5 --> D7[Does Dixcy Slimz offer bras for teens and adult women]:::quaternary
+                D7 --> E5[If not, can we include them]:::quinary
+                B3 --> C6[Are their products designed to cater to all major sizes]:::tertiary
+                B3 --> C7[Are maternity bras included]:::tertiary
+                B3 --> C8[Do they meet the functional needs of these women]:::tertiary
+                B3 --> C9[To which socio economic segment does the brand want to appeal]:::tertiary
+                C9 --> D8[What is the price range offered by the brand]:::quaternary
+                D8 --> E6[Which categogy does this price range fall into]:::quinary
+                C9 --> D9[Is the perceived value matching the price of the product]:::quaternary
+                B3 --> C10[Do they fall under a specefic income category]:::tertiary
+                B3 --> C11[Are there any occupational similarities among these consumers]:::tertiary
+                B3 --> C12[Is there a particular geographical area that the brand has to focus on]:::tertiary
+                C12 --> D10[Which regions have a high numder of sales of the brand]:::quaternary
+                D10 --> E7[Which segment of customers made this possible]:::quinary
+                C12 --> D11[Do the customers purchase the products more often than other locations]:::quaternary
+                C12 --> D12[Which regions have low number of sales]:::quaternary
+                D12 --> E8[Are there any smaller markerts for the brand]:::quinary
+                C12 --> D13[Are there regions that do not align with the positioning of the brand]:::quaternary
+            
+                A1 --> B4[What are the demands of our target demogaphic?]:::secondary
+                B4 --> C14[Do they prefer a specific style?]:::tertiary
+                C14 --> D14[What are the different activities and occasions that our product is used for?]:::quaternary
+                D14 --> E9[How can we improve the ergonomics to optimize the structural design of bras?]:::quinary
+                E9 --> F3[What are the latest advancements in textile engineering that can be utilised to enhance comfort, durability, and functionality in bra design?]:::senary
+                F3 --> G1[How can we connect with suppliers who provide premium materials and latest styles?]:::septenary
+                B4 --> C15[Do they want more coverage?]:::tertiary
+                C15 --> D15[Do they want padding?]:::quaternary
+                C15 --> D16[Do they prefer push up bras?]:::quaternary
+                B4 --> C16[Do they want more support?]:::tertiary
+                C16 --> D17[Do they prefer non wired or underwired bras?]:::quaternary
+                B4 --> C17[Do they want more color options?]:::tertiary
+                C17 --> D18[Do they want colourful options or neutrals?]:::quaternary
+                D18 --> E10[Color: Do they prefer solids or prints]:::quinary
+                E10 --> F4[C: How can we launch fresh designs, prints and colours?]:::senary
+                D18 --> E11[Neutrals: Are they happy with the neutral colours the market currently offers?]:::quinary
+                E11 --> F5[N: Can we launch a range of neutral bras customized for Indian skin tones?]:::senary
+                B4 --> C18[Do they want more afforable options?]:::tertiary
+                C18 --> D19[How can we launch our product range at competitive prices while ensuring profitability?]:::quaternary
+                D19 --> E12[How can we optimize production costs?]:::quinary
+                E12 --> F6[Can we have any promotional offers or discounts?]:::senary
+            
+                ROOT --> A2[What are the most common pain points and preferences expressed by consumers regarding the existing bra offerings?]:::primary
+                A2 --> B5[Are the customers satisfied with the current bra fit and sizes available in the market?]:::secondary
+                B5 --> C19[How can we develop an inclusive size range that caters to a diverse array of body shapes and sizes?]:::tertiary
+                A2 --> B6[Are current bra users in the Indian market aware of the correct bra size and fitting?]:::secondary
+                B6 --> C20[How can we develop a culturally sensitive and respectful approach to educate Indian bra users on accurate bra sizing and fitting?]:::tertiary
+                C20 --> D20[Can we educate our customers and potential customers using marketing tools?]:::quaternary
+                C20 --> D21[Can we add information on the packaging to help educate the customers regarding sizing and fit?]:::quaternary
+                A2 --> B7[How do the top competitors in the current bra market solve their products in terms of design, technology and marketing?]:::secondary
+                B7 --> C21[What are the existing gaps or opportunities that we can exploit?]:::tertiary
+                A2 --> B8[How can we make our bra products more comfortable?]:::secondary
+                B8 --> C22[Can we source premium skin-friendly materials while maintaining profitability?]:::tertiary
+                C22 --> D22[What are the regulatory standards and health guidelines we must adhere to for our product launch?]:::quaternary
+                D22 --> E13[Can we market test the product and take feedback from the customers regarding comfort?]:::quinary
+            
+                ROOT --> A3[How can we design the packaging for our bras to be both functional and aesthetically appealing?]:::primary
+                A3 --> B9[What packaging requirements do distributors have to ensure efficient logistics and meet their operational needs?]:::secondary
+                B9 --> C23[How can we ensure that the packaging adequately protects the bras during shipping and handling?]:::tertiary
+                C23 --> D23[Can we add any new innovations to our packaging?]:::quaternary
+                D23 --> E14[How can we optimize our packaging design and materials to reduce costs while maintaining the quality?]:::quinary
+            
+                ROOT --> A4[How can we structure our supply chain to optimize manufacturing?]:::primary
+                A4 --> B10[What inventory management systems can we use?]:::secondary
+                B10 --> C24[How can we streamline our manufacturing processes to improve efficiency?]:::tertiary
+                C24 --> D24[How can we implement robust quality control procedures in manufacturing?]:::quaternary
+                D24 --> E15[How can we reduce costs at various stages of the supply chain?]:::quinary
+                E15 --> F7[What contingency plans can we develop to handle incase of unexpected supply chain challenges?]:::senary
+            
+                ROOT --> A5[What is the ideal channel to launch the new product]:::primary
+                A5 --> B11[Are our competitors present in online platform]:::secondary
+                B11 --> C25[Does their brand have its own website]:::tertiary
+                C25 --> D25[Does their brand sell on other ecommerce websites]:::quaternary
+                D25 --> E16[Are their sales through ecommerce websites significant]:::quinary
+                E16 --> F8[Where is their brand positioned or ranked on the platforms]:::senary
+                E16 --> F9[Is their brand known to the customers on the ecommerce platforms]:::senary
+                A5 --> B12[Are our competitiors present in offline market]:::secondary
+                B12 --> C26[Do they have any brand-owned outlets]:::tertiary
+                C26 --> D26[Do they have exclusive brand outlets or multi-brand outlets]:::quaternary
+                B12 --> C27[Do they have existing distributors and retailers making significant sales]:::tertiary
+                C27 --> D27[If yes, can the same strategy be applied for bras as well]:::quaternary
+                C27 --> D28[If no, are there any gaps between the distribution and retailers]:::quaternary
+                D28 --> E17[Are their retailers informed of the brand marketing and product innovations?]:::quinary
+                E17 --> F10[Can we target timely delivery and availability of stock with the distributors]:::senary
+                D28 --> E18[Are the retailers satisfied with the margins and incentives given by the brand]:::quinary
+                E18 --> F11[If not, does the brand have the budget to improve these]:::senary
+                E18 --> F12[Is there scope to acquire new retailers for the brand]:::senary
+            
+                ROOT --> A6[What are the current market players in bra category in India]:::primary
+                A6 --> B13[Who are the leading competitors in different zones]:::secondary
+                B13 --> C28[What is North/ East/ West/ South region market distribution]:::tertiary
+                C28 --> D29[When do most bra sales occur for our competitors in these regions]:::quaternary
+                D29 --> E19[Can we enter any of these cities as our GTM strategy]:::quinary
+                B13 --> C29[Are there specific months/ seasons/ festivals affecting bra sales]:::tertiary
+                C29 --> D30[What is the right time to enter the market]:::quaternary
+                D30 --> E20[Is it feasible financially and logisticallly to enter the market in sugested time frame]:::quinary
+                B13 --> C30[What are the categories of bra offered by them]:::tertiary
+                C30 --> D31[Are there standard bra categories of all major players]:::quaternary
+                D31 --> E21[If yes, what are the standard bra categories in market]:::quinary
+                B13 --> C31[What is their most running article currently]:::tertiary
+                C31 --> D32[What is the price point at which it is available]:::quaternary
+                D32 --> E22[Can we offer it at a better price]:::quinary
+                E22 --> F13[If not, can we offer it at the same price]:::senary
+                C31 --> D33[What is the material in which it is available]:::quaternary
+                D33 --> E23[Can we offer it at a better quality]:::quinary
+                E23 --> F14[If not, can we offer the same quality]:::senary
+                C31 --> D34[How many colours are offered in their most running article]:::quaternary
+                D34 --> E24[What are the most demanded colours of their most running article]:::quinary
+                E24 --> F15[Can we include these colours in our range]:::senary
+                C31 --> D35[What are the features of their most running article]:::quaternary
+                D35 --> E25[Can we include these features in our range]:::quinary
+                B13 --> C32[What are the channels where our competitors are selling]:::tertiary
+                C32 --> D36[Do we have any network present already in these channels]:::quaternary
+                D36 --> E26[What is the primary channel through which most sales occur for our competitors]:::quinary
+                E26 --> F16[Can we tap into this primary channel]:::senary
+                C32 --> D37[What is the quantity supplied via our distributors to these channels]:::quaternary
+                D37 --> E27[Are the bras supplied as individual packs or as cases of multiples]:::quinary
+                E27 --> F17[Is there any MOQ]:::senary
+                F17 --> G2[Regarding cases, what is the quantity and colours offered per case]:::septenary
+                C32 --> D38[What is the margin offered to distributors by our competitors on different categories]:::quaternary
+                D38 --> E28[Can we offer a better deal to the dealers and retailers push our products]:::quinary
+                E28 --> F18[If not, can we match the margin offered to them by our competitors]:::senary
+                C32 --> D39[Is there any flexibility in terms of quantity and colour per case offered by our competitors to retailers]:::quaternary
+                D39 --> E29[Can we offer any flexibility in terms of quantity and colour per case]:::quinary
+                B13 --> C33[How are our competitors promoting their products]:::tertiary
+                C33 --> D40[Above the line?]:::quaternary
+                D40 --> E30[Which mediums are to be considered?]:::quinary
+                C33 --> D41[Below the line?]:::quaternary
+                D41 --> E31[Do they have posters/ banners/ brand bands displayed at the point of sale?]:::quinary
+                E31 --> F19[What is the margin offered to the retail/ primary sale channel for any display or promotion]:::senary
+                B13 --> C34[What is our competitors core communication]:::tertiary
+                C34 --> D42[Which competitor's pricing and core communication aligns with that of our brand]:::quaternary
+                B13 --> C35[What is the type of packaging used by our competitors]:::tertiary
+                C35 --> D43[In different price ranges]:::quaternary
+                C35 --> D44[In different categories]:::quaternary
+                C35 --> D45[Are there specific packaging features such as window packaging design]:::quaternary
+                B13 --> C36[Who is our closest competitor]:::tertiary
+                C36 --> D46[In terms of communication]:::quaternary
+                C36 --> D47[In terms of pricing]:::quaternary
+                C36 --> D48[In terms of market share]:::quaternary
+            </div>
+        </div>
+        <div class="zoom-buttons">
+            <button id="zoomIn">Zoom In</button>
+            <button id="zoomOut">Zoom Out</button>
+            <button id="reset">Reset</button>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const zoomContainer = d3.select("#zoomContainer");
+                const zoomContent = d3.select("#zoomContent");
+    
+                const zoom = d3.zoom()
+                    .scaleExtent([0.5, 3]) // Scale range
+                    .on("zoom", (event) => {
+                        zoomContent.style("transform", `translate(${event.transform.x}px, ${event.transform.y}px) scale(${event.transform.k})`);
+                    });
+    
+                zoomContainer.call(zoom);
+    
+                // Observer to apply zoom after Mermaid chart is rendered
+                const observer = new MutationObserver((mutationsList, observer) => {
+                    for (let mutation of mutationsList) {
+                        if (mutation.type === 'childList') {
+                            zoomContainer.call(zoom); // Re-apply zoom
+                        }
+                    }
+                });
+    
+                observer.observe(document.getElementById('zoomContent'), { childList: true });
+    
+                // Render the Mermaid chart
+                mermaid.initialize({ startOnLoad: true });
+    
+                // Zoom in button
+                document.getElementById('zoomIn').addEventListener('click', () => {
+                    zoom.scaleBy(zoomContainer.transition().duration(500), 1.2);
+                });
+    
+                // Zoom out button
+                document.getElementById('zoomOut').addEventListener('click', () => {
+                    zoom.scaleBy(zoomContainer.transition().duration(500), 0.8);
+                });
+    
+                // Reset button
+                document.getElementById('reset').addEventListener('click', () => {
+                    zoomContainer.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+                });
+            });
+        </script>
+    </body>
+    </html>
